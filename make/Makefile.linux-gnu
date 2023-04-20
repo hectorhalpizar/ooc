@@ -34,7 +34,7 @@ CC	= gcc -std=c99 -g -Wl,--allow-multiple-definition \
 curses	= -lcurses#				how to link curses(3)
 debug	= #					how to track memory leaks
 host	= -dis unix:0#				how to get to the X11 host
-Lm	= #					math functions
+Lm	= -lm #					math functions
 # OOC	= ../ooc/ooc $(chapter)#		how to call the ooc script
 OOC	= ../ooc/ooc -DGNUC=1 $(chapter)#	... using const functions
 Rflag	= `if [ $* = Object ]; then echo -R; else :; fi`
