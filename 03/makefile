@@ -14,8 +14,8 @@ test::		postfix		; echo '2 * (3 + 4)' | postfix
 test::		value		; echo '2 * (3 + 4)' | value
 test::		infix		; echo '2 * (3 + 4)' | infix
 
-postfix::	$(postfix)	; $(CC) $(CFLAGS) -o $@ $(postfix)
-value::		$(value)	; $(CC) $(CFLAGS) -o $@ $(value)
-infix::		$(infix)	; $(CC) $(CFLAGS) -o $@ $(infix)
+postfix::	$(postfix)	; $(CC) $(CFLAGS) -Wl,--allow-multiple-definition -o $@ $(postfix)
+value::		$(value)	; $(CC) $(CFLAGS) -Wl,--allow-multiple-definition -o $@ $(value)
+infix::		$(infix)	; $(CC) $(CFLAGS) -Wl,--allow-multiple-definition -o $@ $(infix)
 
 include ../make/Makefile.$(OSTYPE)

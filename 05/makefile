@@ -10,6 +10,6 @@ clean:				; rm -f $t *.o
 
 test::		value		; echo 'let a = sin(1) + PI' | value
 
-value:		$(value)	; $(CC) $(CFLAGS) -o $@ $(value) $(Lm)
+value:		$(value)	; $(CC) $(CFLAGS) -Wl,--allow-multiple-definition -o $@ $(value) $(Lm)
 
 include ../make/Makefile.$(OSTYPE)
