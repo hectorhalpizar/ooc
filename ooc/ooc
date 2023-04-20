@@ -43,7 +43,7 @@ targets:     -dc        make thunks for last 'class'
 	[ "$awk" ] ||
 	  { echo >&2 GNU awk not found; exit 1; }
 
-	for home in $HOME/oop/code/ooc/ $HOME/ooc/ooc/ \
+	for home in $HOME/Documents/code/ooc/ooc/ $HOME/oop/code/ooc/ $HOME/ooc/ooc/ \
 	    $HOME/Documents/Vorlesungen/oop/code/ooc/ ''; do
 	  [ -d $home ] && break
 	done

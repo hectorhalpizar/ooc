@@ -26,18 +26,19 @@
 # 14	hello button run cbutton crun xhello xbutton xrun
 
 AWK	= awk#					'new' awk
-# CC	= cc -Wall -Wno-unused - -g \
 
-CC	= gcc -std=c99 -g -Wl,--allow-multiple-definition \
+# CC	= gcc -std=c99 -g -Wl,--allow-multiple-definition \
+
+CC	= cc -g \
 	  -I/usr/X11R6/include  #			how to call the C compiler
 
 curses	= -lcurses#				how to link curses(3)
 debug	= #					how to track memory leaks
 host	= -dis unix:0#				how to get to the X11 host
 Lm	= -lm #					math functions
-# OOC	= ../ooc/ooc $(chapter)#		how to call the ooc script
-OOC	= ../ooc/ooc -DGNUC=1 $(chapter)#	... using const functions
-Rflag	= `if [ $* = Object ]; then echo -R; else :; fi`
+# OOC	= $(HOME)/Documents/code/ooc/ooc/ooc $(chapter) #		how to call the ooc script
+OOC	= $(HOME)/Documents/code/ooc/ooc/ooc -DGNUC=1 $(chapter) #	... using const functions
+Rflag	= $(shell if [ $* = Object ]; then echo -R; else :; fi;)
 x11	= -Xlinker -multiply_defined -Xlinker suppress \
 	  -L/usr/X11R6/lib -lXaw -lXmu -lXext -lXt -lX11# how to link X11
 
@@ -53,7 +54,7 @@ x11	= -Xlinker -multiply_defined -Xlinker suppress \
 
 depend:	$h $r $c $m makefile
 	  > $@
-	- if [ "$c$m" ]; then $(CC) -MM $(CFLAGS) $c $m >> $@; fi
+	- if [ "$c $m" ]; then $(CC) -MM $(CFLAGS) $c $m >> $@; fi
 	- if [ "$d" ]; then $(OOC) -M $d >> $@; fi
 	- if [ "$d" ]; then \
 	    d="$d"; for i in $$d; do echo $$i.c: $$i.d; done >> $@; fi

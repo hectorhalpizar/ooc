@@ -5,7 +5,7 @@ Wc.o: Wc.c Wc.h Object.h Wc.r Object.r Filter.h
 String.o: String.c String.h Object.h String.r Object.r
 List.o: List.c List.h Object.h List.r Object.r
 Sort.o: Sort.c Sort.h List.h Object.h Sort.r List.r Object.r Filter.h \
-  String.h
+ String.h
 Filter.d: Object.d
 Cmd.d: Object.d
 Wc.d: Object.d

@@ -1,4 +1,4 @@
-#! /usr/local/gnu/bin/gawk -f
+#! /usr/bin/gawk -f
 
 # nm -p object archive image ... | gawk -f munch
 # produces a class list
@@ -33,7 +33,8 @@ $2 == "T"				{ T[$3] = 1; next }
 END {
 	for (name in T)
 		if ("_" name in bsd)		# eliminate leading _
-			names[n ++] = substr(name, 2)
+			names[n ++] = substr(name, 1)
+			# names[n ++] = substr(name, 2) # Hector added here
 		else if ("_" name in sysv)
 			names[n ++] = name
 						# shellsort()
