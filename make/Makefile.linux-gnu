@@ -39,7 +39,9 @@ Lm	= -lm #					math functions
 # OOC	= $(HOME)/Documents/code/ooc/ooc/ooc $(chapter) #		how to call the ooc script
 OOC	= $(HOME)/Documents/code/ooc/ooc/ooc -DGNUC=1 $(chapter) #	... using const functions
 Rflag	= $(shell if [ $* = Object ]; then echo -R; else :; fi;)
-x11	= -Xlinker -multiply_defined -Xlinker suppress \
+# x11	= -Xlinker multiply_defined -Xlinker suppress \
+
+x11	= -Xlinker \
 	  -L/usr/X11R6/lib -lXaw -lXmu -lXext -lXt -lX11# how to link X11
 
 # Rflag is used to hide ooc entirely behind implicit rules.
