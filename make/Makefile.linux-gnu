@@ -37,7 +37,7 @@ debug	= #					how to track memory leaks
 host	= -dis unix:0#				how to get to the X11 host
 Lm	= -lm #					math functions
 # OOC	= $(HOME)/Documents/code/ooc/ooc/ooc $(chapter) #		how to call the ooc script
-OOC	= $(HOME)/Documents/code/ooc/ooc/ooc -DGNUC=1 $(chapter) #	... using const functions
+OOC	= $(HOME)/ooc/ooc/ooc -DGNUC=1 $(chapter) #	... using const functions
 Rflag	= $(shell if [ $* = Object ]; then echo -R; else :; fi;)
 # x11	= -Xlinker multiply_defined -Xlinker suppress \
 
